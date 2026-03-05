@@ -10,8 +10,8 @@ class Program
     static void Main(string[] args)
     {
         var carrinho = new CarrinhoDeCompras();
-        carrinho.AdicionarProduto("Mouse", 79.90m, 2);
-        carrinho.AdicionarProduto("Teclado", 159.90m, 1);
+        carrinho.AdicionarProduto("Mouse", 80.00m, 2);
+        carrinho.AdicionarProduto("Teclado", 160.00m, 1);
 
         IPagamento pagamento = new PagamentoPix();
         pagamento.Pagar(carrinho.ValorTotal);
@@ -26,11 +26,11 @@ class Program
 
         var service = new CadastroService(repoProduto, repoProduto, repoNota, repoNota, logger, validadorProduto);
 
-        service.CadastrarProduto(new Produto { Descricao = "Mouse", ValorUnitario = 79.90m });
-        service.CadastrarProduto(new Produto { Descricao = "Teclado", ValorUnitario = 159.90m });
-        service.CadastrarProduto(new Produto { Descricao = "", ValorUnitario = 100m }); // inválido
+        service.CadastrarProduto(new Produto { Descricao = "Mouse", ValorUnitario = 80m });
+        service.CadastrarProduto(new Produto { Descricao = "Teclado", ValorUnitario = 160m });
+        service.CadastrarProduto(new Produto { Descricao = "Monitor", ValorUnitario = 300m });
 
-        service.CadastrarNota(new NotaFiscal { Numero = 1, Cliente = "Ricardo", ValorTotal = 319.70m });
+        service.CadastrarNota(new NotaFiscal { Numero = 1, Cliente = "Rui", ValorTotal = 320m });
         service.CadastrarNota(new NotaFiscal { Numero = 2, Cliente = "Empresa X", ValorTotal = 500m });
 
         service.ListarTudo();
